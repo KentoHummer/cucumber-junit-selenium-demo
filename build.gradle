@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group 'kentohummer.cjsdemo'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:latest.release'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:latest.release'
+}
+
+test {
+    useJUnitPlatform()
+}

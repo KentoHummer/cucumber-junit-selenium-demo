@@ -2,6 +2,10 @@ plugins {
     id 'java'
 }
 
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
 group 'kentohummer.cjsdemo'
 version '1.0-SNAPSHOT'
 
@@ -9,9 +13,19 @@ repositories {
     mavenCentral()
 }
 
+// デモ用のためライブラリのバージョンについては最新リリース指定としています（本来は固定のバージョン指定の方が望ましいです）
 dependencies {
+    // Cucumber関連のライブラリ
+    testImplementation 'io.cucumber:cucumber-java:latest.release'
+    testImplementation 'io.cucumber:cucumber-junit-platform-engine:latest.release'
+    // JUnit関連のライブラリ
     testImplementation 'org.junit.jupiter:junit-jupiter-api:latest.release'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:latest.release'
+    testImplementation 'org.junit.platform:junit-platform-suite-api:latest.release'
+    testRuntimeOnly 'org.junit.platform:junit-platform-suite-engine:latest.release'
+    // Selenium関連のライブラリ
+    testImplementation 'org.seleniumhq.selenium:selenium-java:latest.release'
+    testImplementation 'io.github.bonigarcia:webdrivermanager:latest.release'
 }
 
 test {
